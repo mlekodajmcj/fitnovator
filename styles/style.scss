@@ -1,0 +1,323 @@
+$primary: #aa1d1d;
+$secondary: #d52525;
+$tertiary: #7e1616;
+
+@mixin basic-button {
+	background-color: $primary;
+	color: #ffffff;
+	padding: .5rem 1rem;
+	border: none;
+	border-radius: .75rem;
+	transition: all .5s;
+
+	&:focus,
+	&:hover {
+		background-color: $secondary;
+	}
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0;
+	background: #020202;
+	color: #ffffff;
+	font-family: 'Merriweather';
+}
+
+ul {
+	margin: 0;
+	padding: 0
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+.row {
+	margin: 0;
+}
+
+.nav {
+	width: 100vw;
+	min-height: 75px;
+	margin: 0;
+	position: fixed;
+	z-index: 100;
+	background: #000000;
+	border-bottom: 1px solid $primary;
+
+
+	@at-root #{&}__brand {
+		text-align: left;
+
+	}
+
+	@at-root #{&}__logo {
+		max-height: 48px;
+	}
+
+	@at-root #{&}__list {
+		text-align: center;
+		font-size: 1.1rem;
+
+		@at-root #{&}--socials {
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	@at-root #{&}__button {
+		@at-root #{&}--toggler {
+			color: #ffffff;
+
+			&:focus,
+			&:active {
+				color: $primary;
+			}
+		}
+		@at-root #{&}--contact {
+			@include basic-button;
+		}
+	}
+
+	@at-root #{&}__item {
+		padding: .5rem;
+
+		i {
+			font-size: 1.5rem;
+		}
+	}
+
+	@at-root #{&}__link {
+		color: #ffffff;
+		transition: all .4s;
+		position: relative;
+
+		&:hover,
+		&:focus {
+			color: $primary;
+			text-decoration: none;
+		}
+	}
+}
+
+.hero {
+	background-image: url(../images/hero.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	@at-root #{&}__button {
+		@include basic-button;
+	}
+}
+
+.about {
+	background-color: #020202;
+	text-align: center;
+	padding: 32px 7.5% 0 7.5%;
+
+	@at-root #{&}__group {
+		display: flex;
+		align-items: center;
+	}
+
+	@at-root #{&}__text {
+		padding-bottom: 1.5rem;
+	}
+}
+
+.mission {
+	background-color: #ffffff;
+	color: #000000;
+	padding: 32px 7.5%;
+	text-align: center;
+	border-radius: 0 2rem;
+
+	@at-root #{&}__title {
+		padding-bottom: 10px;
+	}
+}
+
+.coaching {
+	padding-top: 64px;
+	padding-bottom: 64px;
+}
+
+.card {
+	background-color: #040404;
+	margin: 0 7.5%;
+	padding: 0;
+	border: none;
+	border-bottom: 2px solid $primary;
+	border-radius: 0 25px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,.6), 0 10px 32px 0 rgba(0,0,0,.6);
+
+	@at-root #{&}__header {
+		background-color: #000000;
+		color: #ffffff;
+		border-radius: 0 25px;
+		border-bottom: 2px solid $primary;
+		padding: 1.5rem 1.25rem;
+		box-sizing: border-box;
+
+		h1 {
+			font-size: 1.2rem;
+		}
+	}
+
+	@at-root #{&}__body {
+		color: #ffffff;
+		border-bottom: 2px solid $primary;
+		padding: 0;
+		flex: 1 1 auto;
+	}
+
+	@at-root #{&}__item {
+		padding: 10px;
+
+		&:nth-child(odd) {
+			background-color: #040404;
+		}
+
+		&:nth-child(even) {
+			background-color: #0c0c0c;
+		}
+	}
+
+	@at-root #{&}__ribbon {
+		position: absolute;
+		overflow: hidden;
+		top: -8px;
+		left: -8px;
+		width: 112px;
+		height: 112px;
+		span {
+			position: absolute;
+			display: block;
+			width: 160px;
+			padding: 8px 0;
+			background-color: $primary;
+			box-shadow: 0 5px 5px rgba(255,0,0,0.1);
+			color: #fff;
+			font-size: 12px;
+			text-transform: uppercase;
+			text-align: center;
+			left: -35px;
+			top: 25px;
+			transform: rotate(-45deg);
+		}
+		&::before,
+		&::after {
+			position: absolute;
+			z-index: -1;
+			content: '';
+			display: block;
+			border: 5px solid $primary;
+			border-top-color: transparent;
+			border-left-color: transparent;
+		}
+		&::before {
+			top: 0;
+			right: 0; 
+		}
+		&::after {
+			bottom: 0;
+			left: 0;
+		}
+
+	}
+
+	@at-root #{&}__footer {
+		padding: 10px 10px 0 10px;
+	}
+
+	@at-root #{&}__button {
+		@include basic-button;
+		margin-bottom: 10px;
+		min-width: 128px;
+	}
+}
+
+.contact {
+	background-color: #000000;
+	padding: 64px 5% 32px 5%;
+	text-align: center;
+	@at-root #{&}__info {
+		@at-root #{&}__list {
+
+			@at-root #{&}__item {
+				display: inline-block;
+				padding-top: 35px
+			}
+		}
+	}
+
+	@at-root #{&}__description {
+		padding-bottom: 10px;
+	}
+
+	@at-root #{&}__input {
+		color: #ffffff;
+		font-size: 1.1rem;
+		border-radius: 3px;
+		background-color: transparent;
+		border: 2px solid $primary;
+		transition: all 0.3s;
+		padding: 10px;
+		margin-bottom: 12px;
+		width: 100%;
+		outline: none;
+	}
+
+	@at-root #{&}__button {
+		@include basic-button;
+		text-align: center;
+		font-size: 1.4rem;
+		width: 100%;
+		cursor: pointer;		
+	}
+
+	textarea {
+		height: 9rem;
+		line-height: 150%;
+	}
+}
+
+.footer {
+	background: #080808;
+	padding: 32px 7.5%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	font-size: .8rem;
+
+	@at-root #{&}__link {
+		color: #ffffff;
+		transition: all .4s;
+		position: relative;
+		padding: 5px;
+
+		&:hover,
+		&:focus {
+			color: $primary;
+			text-decoration: none;
+		}
+
+		@at-root #{&}--social {
+			display: inline-block;
+			font-size: 1rem;
+			padding: 0 .5rem;
+		}
+	}
+}
